@@ -1,5 +1,5 @@
 package umm3601.todo;
-//This is for travis CI
+
 import com.mongodb.MongoException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -31,7 +31,7 @@ public class TodoController {
       Document todo = iterator.next();
       return todo.toJson();
     } else {
-      // We didn't find the desired user
+      // We didn't find the desired todo
       return null;
     }
   }
