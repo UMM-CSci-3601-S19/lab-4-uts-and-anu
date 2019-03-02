@@ -28,7 +28,7 @@ export class  TodoPage {
   }
 
   typeAOwner(owner: string) {
-    const input = element(by.id('ownerName'));
+    const input = element(by.id('targetOwner'));
     input.click();
     input.sendKeys(owner);
   }
@@ -42,7 +42,7 @@ export class  TodoPage {
   }
 
   getCateogry(category: string) {
-    const input = element(by.id('todoCategory'));
+    const input = element(by.id('targetCategory'));
     input.click();
     input.sendKeys(category);
     this.click('submit');
