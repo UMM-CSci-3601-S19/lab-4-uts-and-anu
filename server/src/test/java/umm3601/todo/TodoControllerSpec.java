@@ -1,4 +1,4 @@
-package umm3601.user;
+package umm3601.todo;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
@@ -12,7 +12,6 @@ import org.bson.json.JsonReader;
 import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
-import umm3601.todo.TodoController;
 
 import java.util.*;
 import java.util.stream.Collectors;
