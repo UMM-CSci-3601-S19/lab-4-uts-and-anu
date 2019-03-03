@@ -10,10 +10,7 @@
           <input matInput id="targetOwner" #input type="text" placeholder="Filter by owner"
                  (input)="targetOwner = $event.target.value">
         </mat-form-field>
-        <mat-form-field>
-          <input matInput id="targetStatus" #input type="text" placeholder="Filter by status"
-                 (input)="targetStatus = $event.target.value">
-        </mat-form-field>
+
         <mat-form-field>
           <input matInput id="targetCategory" #input type="search" placeholder="Search for category"
                  [(ngModel)]="targetCategory"/>
@@ -24,6 +21,14 @@
         </mat-form-field>
         <button mat-raised-button id="submit" color="primary" #input type="button" (click)="loadService()">Submit
         </button>
+
+
+        <div>
+          <mat-checkbox name="statusName" ngDefaultControl [(ngModel)]="targetStatus">Complete</mat-checkbox>
+          <br/>
+          <!--<mat-checkbox #input [value]="false" (input) = "todoStatus=$event.target.value">Incomplete</mat-checkbox>-->
+        </div><br/>
+
 
         <mat-accordion *ngIf="todos; else todosError">
           <mat-expansion-panel #elem class="todos" [id]="todo.body" [expanded]="this.isHighlighted(todo)"
