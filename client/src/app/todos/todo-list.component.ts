@@ -37,7 +37,7 @@ export class TodoListComponent implements OnInit {
   }
 
   openDialog(): void {
-    const newTodo: Todo = {_id: '', owner: '', status: null , category: '', body: ''};
+    const newTodo: Todo = {_id: '', owner: '', status: null, category: '', body: ''};
     const dialogRef = this.dialog.open(AddTodoComponent, {
       width: '500px',
       data: {todo: newTodo}
@@ -46,6 +46,7 @@ export class TodoListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(newTodo => {
       if (newTodo != null) {
+
         this.todoListService.addNewTodo(newTodo).subscribe(
           result => {
             this.highlightedID = result;

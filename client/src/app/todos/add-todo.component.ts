@@ -27,13 +27,17 @@ export class AddTodoComponent implements OnInit {
       {type: 'existingOwner', message: 'Owner has already been taken'}
     ],
 
-    'status': [
+    /*'status': [
       {type: 'pattern', message: 'Status must be complete or incomplete'},
       {type: 'required', message: 'status is required'}
-    ],
+    ],*/
 
     'body': [
-      {type: 'required', message: 'body must be required'}
+      {type: 'required', message: 'body is required'}
+    ],
+
+    'category': [
+      {type: 'required', message: 'category is required'}
     ]
   };
 
@@ -48,20 +52,19 @@ export class AddTodoComponent implements OnInit {
         Validators.required
       ])),
 
-      status: new FormControl('status', Validators.compose([
-        /*Validators.pattern('^[complete]+[incomplete]?'),*/
+      /*status: new FormControl('status', Validators.compose([
+        /!*Validators.pattern('^[complete]+[incomplete]?'),*!/
         Validators.pattern('^[true]+[false]?'),
+        Validators.required
+      ])),*/
+
+      category: new FormControl('category', Validators.compose([
         Validators.required
       ])),
 
-      // We don't care much about what is in the company field, so we just add it here as part of the form
-      // without any particular validation.
-      category: new FormControl('Category'),
-
-      // We don't need a special validator just for our app here, but there is a default one for email.
       body: new FormControl('body', Validators.compose([
         Validators.required
-    ])),
+      ])),
 
     })
 
