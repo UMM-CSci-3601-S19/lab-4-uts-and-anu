@@ -3,6 +3,7 @@ import {TodoListService} from "./todo-list.service";
 import {Todo} from "./todo";
 import {Observable} from 'rxjs/Observable';
 import {MatDialog} from '@angular/material';
+import {AddTodoComponent} from './add-todo.component';
 // Don't forget to Create and add TodoUser Component
 
 @Component({
@@ -35,6 +36,30 @@ export class TodoListComponent implements OnInit {
     return todo._id['$oid'] === this.highlightedID;
   }
 
+  openDialog(): void {
+    const newTodo: Todo = {_id: '', owner: '', status: null , category: '', body: ''};
+    const dialogRef = this.dialog.open(AddTodoComponent, {
+      width: '500px',
+      data: {todo: newTodo}
+    });
+
+
+    dialogRef.afterClosed().subscribe(newTodo => {
+      if (newTodo != null) {
+        this.todoListService.addNewTodo(newTodo).subscribe(
+          result => {
+            this.highlightedID = result;
+            this.refreshTodos();
+          },
+          err => {
+            // This should probably be turned into some sort of meaningful response.
+            console.log('There was an error adding the todo.');
+            console.log('The newTodo or dialogResult was ' + JSON.stringify(newTodo));
+            console.log('The error was ' + JSON.stringify(err));
+          });
+      }
+    });
+  }
 
   public filterTodos(searchOwner: string, searchStatus: string, searchBody: string): Todo[] {
 
