@@ -18,7 +18,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import {CustomModule} from './custom.module';
 import {AddUserComponent} from './users/add-user.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -27,7 +27,6 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HttpClientModule,
     Routing,
     CustomModule,
-    MatCheckboxModule,
   ],
   declarations: [
     AppComponent,
