@@ -93,6 +93,7 @@ public class TodoController {
     newTodo.append("body", body);
     newTodo.append("category", category);
 
+
     try {
       todoCollection.insertOne(newTodo);
       ObjectId id = newTodo.getObjectId("_id");
