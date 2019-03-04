@@ -47,14 +47,15 @@ public class TodoController {
       contentRegQuery.append("$options", "i");
       filterDoc = filterDoc.append("owner", contentRegQuery);
     }
-    
+
 
     if (queryParams.containsKey("status")) {
       boolean targetStatus = Boolean.parseBoolean(queryParams.get("status")[0]);
       filterDoc = filterDoc.append("status", targetStatus);
     }
 
-    if (queryParams.containsKey("body")) {
+    //We don't need body and category, because we only plan on using server side filtering owner and status
+    /*if (queryParams.containsKey("body")) {
       String targetBody = (queryParams.get("body")[0]);
       Document contentRegQuery = new Document();
       contentRegQuery.append("$regex", targetBody);
@@ -68,7 +69,7 @@ public class TodoController {
       contentRegQuery.append("$regex", targetCategory);
       contentRegQuery.append("$options", "i");
       filterDoc = filterDoc.append("category", contentRegQuery);
-    }
+    }*/
 
 
 
