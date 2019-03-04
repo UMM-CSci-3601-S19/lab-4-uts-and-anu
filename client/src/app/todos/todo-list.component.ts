@@ -20,6 +20,7 @@ export class TodoListComponent implements OnInit {
   public targetOwner: string;
   public targetStatus: string;
   public targetCategory: string;
+  public targetBody: string;
 
 
   private highlightedID: string = '';
@@ -35,10 +36,9 @@ export class TodoListComponent implements OnInit {
   }
 
 
-  public filterTodos(searchOwner: string, searchStatus: string): Todo[] {
-    console.log("The search status in filterTodos is" + searchStatus);
-    this.filteredTodos= this.todos;
+  public filterTodos(searchOwner: string, searchStatus: string, searchBody: string): Todo[] {
 
+    this.filteredTodos= this.todos;
 
     // Filter by owner
     if (searchOwner != null) {
@@ -60,6 +60,17 @@ export class TodoListComponent implements OnInit {
     }
 
 
+    //Filter by body
+    if(searchBody != null){
+      searchBody = searchBody.toLocaleLowerCase();
+
+      this.filteredTodos = this.filteredTodos.filter(todo => {
+        return !searchBody || todo.body.toLowerCase().indexOf(searchBody) !== -1;
+      })
+
+    }
+
+
     return this.filteredTodos;
   }
 
@@ -69,7 +80,7 @@ export class TodoListComponent implements OnInit {
     todos.subscribe(
       todos => {
         this.todos = todos;
-        this.filterTodos(this.targetOwner, this.targetStatus);
+        this.filterTodos(this.targetOwner, this.targetStatus, this.targetBody);
       },
       err => {
         console.log(err);
