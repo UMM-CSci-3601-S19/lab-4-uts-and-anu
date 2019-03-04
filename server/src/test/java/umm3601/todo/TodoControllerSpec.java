@@ -36,6 +36,12 @@ public class TodoControllerSpec {
     List<Document> testTodos = new ArrayList<>();
 
     testTodos.add(Document.parse("{\n" +
+      "                    owner: \"Ananya\",\n" +
+      "                    status: true,\n" +
+      "                    body: \"sleep\",\n" +
+      "                    category: \"hobby\"\n" +
+      "                }"));
+    testTodos.add(Document.parse("{\n" +
       "                    owner: \"Kaelan\",\n" +
       "                    status: true,\n" +
       "                    body: \"eatLays\",\n" +
@@ -53,6 +59,7 @@ public class TodoControllerSpec {
       "                    body: \"sleep\",\n" +
       "                    category: \"survival\"\n" +
       "                }"));
+
 
     meganId = new ObjectId();
     BasicDBObject megan = new BasicDBObject("_id", meganId);
@@ -92,13 +99,13 @@ public class TodoControllerSpec {
     String jsonResult = todoController.getTodos(emptyMap);
     BsonArray docs = parseJsonArray(jsonResult);
 
-    assertEquals("Should be 4 todos", 4, docs.size());
+    assertEquals("Should be 5 todos", 5, docs.size());
     List<String> owners = docs
       .stream()
       .map(TodoControllerSpec::getOwner)
       .sorted()
       .collect(Collectors.toList());
-    List<String> expectedNames = Arrays.asList("Kaelan", "Nic", "Utkarsh", "Megan");
+    List<String> expectedNames = Arrays.asList("Ananya", "Kaelan","Megan", "Nic", "Utkarsh");
     assertEquals("Owners should match", expectedNames, owners);
   }
 
@@ -144,7 +151,7 @@ public class TodoControllerSpec {
       .map(TodoControllerSpec::getOwner)
       .sorted()
       .collect(Collectors.toList());
-    assertEquals("Should return owner of new todo", "KK", owner.get(0));
+    assertEquals("Should return owner of new todo", "KK", owner.get(1));
   }
 
   @Test
@@ -155,13 +162,13 @@ public class TodoControllerSpec {
     argMap.put("category", new String[]{"[h,s]"});
     String jsonResult = todoController.getTodos(argMap);
     BsonArray docs = parseJsonArray(jsonResult);
-    assertEquals("Should be 3 owners", 3, docs.size());
+    assertEquals("Should be 4 owners", 4, docs.size());
     List<String> owner = docs
       .stream()
       .map(TodoControllerSpec::getOwner)
       .sorted()
       .collect(Collectors.toList());
-    List<String> expectedOwner = Arrays.asList("Nic", "Utkarsh", "Megan");
+    List<String> expectedOwner = Arrays.asList("Ananya", "Megan", "Nic", "Utkarsh");
     assertEquals("Owners should match", expectedOwner, owner);
 
   }
