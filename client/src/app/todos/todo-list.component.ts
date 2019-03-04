@@ -43,6 +43,7 @@ export class TodoListComponent implements OnInit {
       data: {todo: newTodo}
     });
 
+
     dialogRef.afterClosed().subscribe(newTodo => {
       if (newTodo != null) {
         this.todoListService.addNewTodo(newTodo).subscribe(
@@ -53,7 +54,7 @@ export class TodoListComponent implements OnInit {
           err => {
             // This should probably be turned into some sort of meaningful response.
             console.log('There was an error adding the todo.');
-            console.log('The newTodo or dialogResult was ' + newTodo);
+            console.log('The newTodo or dialogResult was ' + JSON.stringify(newTodo));
             console.log('The error was ' + JSON.stringify(err));
           });
       }
