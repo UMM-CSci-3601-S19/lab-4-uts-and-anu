@@ -23,11 +23,15 @@
         </button>
 
 
-        <div>
-          <mat-checkbox name="statusName" ngDefaultControl [(ngModel)]="targetStatus">Complete</mat-checkbox>
-          <br/>
-          <!--<mat-checkbox #input [value]="false" (input) = "todoStatus=$event.target.value">Incomplete</mat-checkbox>-->
-        </div><br/>
+        <form>
+          <label> Status:</label>
+          <select name="statusOptions" id="targetStatus" #input placeholder="Filter by status"
+                  (input)="targetStatus = $event.target.value">
+            <option value="">Both</option>
+            <option value="true">Complete</option>
+            <option value="false">Incomplete</option>
+          </select>
+        </form>
 
 
         <mat-accordion *ngIf="todos; else todosError">

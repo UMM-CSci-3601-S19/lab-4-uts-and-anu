@@ -3,7 +3,7 @@ import {TodoListService} from "./todo-list.service";
 import {Todo} from "./todo";
 import {Observable} from 'rxjs/Observable';
 import {MatDialog} from '@angular/material';
-// DOn't forget to Create and add TodoUser Component
+// Don't forget to Create and add TodoUser Component
 
 @Component({
   selector: 'todo-list-component',
@@ -18,11 +18,12 @@ export class TodoListComponent implements OnInit {
 
 
   public targetOwner: string;
-  public targetStatus: boolean;
+  public targetStatus: string;
   public targetCategory: string;
 
 
   private highlightedID: string = '';
+
 
   // Inject the TodoListService into this component.
   constructor(public todoListService: TodoListService, public dialog: MatDialog) {
@@ -34,9 +35,10 @@ export class TodoListComponent implements OnInit {
   }
 
 
-  public filterTodos(searchOwner: string, searchStatus: boolean): Todo[] {
-
+  public filterTodos(searchOwner: string, searchStatus: string): Todo[] {
+    console.log("The search status in filterTodos is" + searchStatus);
     this.filteredTodos= this.todos;
+
 
     // Filter by owner
     if (searchOwner != null) {
@@ -47,12 +49,16 @@ export class TodoListComponent implements OnInit {
       });
     }
 
-    // Filter by status
+
+    //Filter by status using string
     if (searchStatus != null) {
+      searchStatus = searchStatus.toLocaleLowerCase();
+
       this.filteredTodos = this.filteredTodos.filter(todo => {
-        return !searchStatus || todo.status == searchStatus;
+        return !searchStatus || String(todo.status).toLowerCase().indexOf(searchStatus) !== -1;
       });
     }
+
 
     return this.filteredTodos;
   }
