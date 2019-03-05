@@ -32,3 +32,5 @@ How is that being tested?
 7. Server calls on addNewUser in UserRequestHandler, which gets the name, age, company and email using .getString from server. Then it calls the addNewUser in userController passing on the values. UserController creates new document with the values and uses insertOne ti put in the user. Try and catch are used to make sure the process is successful.
 
 
+Our server side filters are Owner and Status on the Fry's Incomplete Todos page. That page also has body and category as angular filtering. The reason we chose owner and status to be server side filtering is because it's realistic that a person using this app would only want to look at their incomplete todos and know what they have left. Since, there is no login system we just chose to pretend we are fry and filter owner for him and status as incomplete. The body and category for angular filtering makes sense, because Fry will still want to reduce all his todos down to specific todos(by body) or specific categories(ex: how much homework he has left).
+
