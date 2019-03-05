@@ -3,14 +3,17 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/']" (click)="layout.close()" routerLinkActive="nav-active"
          [routerLinkActiveOptions]="{exact: true}">
-        <mat-icon>home</mat-icon>
+        <mat-icon id="homeID">home</mat-icon>
         Home</a>
       <a mat-list-item [routerLink]="['/users']" (click)="layout.close()" routerLinkActive="nav-active">
-        <mat-icon>account_box</mat-icon>
+        <mat-icon id="accountID">account_box</mat-icon>
         Users</a>
       <a mat-list-item [routerLink]="['/todos']" (click)="layout.close()" routerLinkActive="nav-active">
-        <mat-icon>account_box</mat-icon>
+        <mat-icon id="assignmentID">assignment</mat-icon>
         Todos</a>
+      <a mat-list-item [routerLink]="['/fryIncomplete']" (click)="layout.close()" routerLinkActive="nav-active">
+        <mat-icon id="lateID">assignment_late</mat-icon>
+        Fry's Incomplete Todos</a>
     </mat-nav-list>
   </td-navigation-drawer>
   <td-layout-nav toolbarTitle="Menu" navigationRoute="/">

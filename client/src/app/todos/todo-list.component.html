@@ -42,18 +42,25 @@
         </form>
 
 
-        <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem class="todos" [id]="todo.body" [expanded]="this.isHighlighted(todo)"
-                               *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
-            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="status: {{todo.status}}">{{todo.body}}</mat-panel-title>
+        <div id="cardDiv" *ngIf="todos; else todosError">
+          <mat-card #elem class="todo" [id]="todo._id['$oid']" *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
+              <mat-card-title id="ownerss" matTooltip="status: {{todo.status}}">
+                <div [class]="todo.status">
+                  <mat-icon>done_outline</mat-icon>
+                </div>
 
-            </mat-expansion-panel-header>
-            <mat-panel-description>Owner: {{todo.owner}} </mat-panel-description>
-            <mat-panel-description>Category:{{todo.category}} </mat-panel-description>
-            <mat-panel-description>Complete?:{{todo.status}} </mat-panel-description>
-          </mat-expansion-panel>
-        </mat-accordion>
+
+                <div id="divinside">{{todo.owner}}</div>
+
+              </mat-card-title>
+
+
+
+            <mat-card-content class="cardContent"> {{todo.body}} </mat-card-content>
+            <mat-card-content class="cardContent">{{todo.category}} </mat-card-content>
+            <mat-card-content class="cardContent">{{todo._id['$oid']}} </mat-card-content>
+            </mat-card>
+        </div>
 
         <ng-template #todosError>
           <mat-error>

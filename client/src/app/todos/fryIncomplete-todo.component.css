@@ -25,7 +25,9 @@
 .cardContent{
   padding: 5px;
 }
-#ownerss {
+
+#categoryy {
+  float:left;
   border-radius: 20%;
   /*margin-right: 40px;*/
   width: 100%;
@@ -34,39 +36,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 1;
-
-
-
+  margin: 0;
 }
-#addNewTodo {
-  margin-left: 45%;
-  border-radius: 300px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #bbbbbb;
-}
-#addNewTodo:hover {
-  background-color: #0086B3;
-  color: white;
 
-}
-.true {
 
-  float: right;
-  display: inline;
-  color: #009926;
-}
-.false {
 
-  float: right;
-  display: inline;
-  color: #a61717;
-}
 #divinside {
+  float: left;
   background-color: #0086B3;
   padding: 10px;
   border-radius: 20%;
-  margin-left: 40px;
 }
-

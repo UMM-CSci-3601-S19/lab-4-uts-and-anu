@@ -1,0 +1,42 @@
+<div layout-gt-sm="row">
+  <div flex-gt-sm="80" flex-offset-gt-sm="10">
+    <mat-card>
+      <mat-card-title id="todo-list-title">Fry's Incomplete Todos</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput id="fryBody" #input type="text" placeholder="Filter by body"
+                 (input)="fryBody = $event.target.value">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput id="fryCategory" #input type="text" placeholder="Filter by category"
+                 (input)="fryCategory = $event.target.value">
+        </mat-form-field>
+
+
+
+        <div id="cardDiv" *ngIf="fryTodos; else todosError">
+          <mat-card #elem class="todo" [id]="todo.body" *ngFor="let todo of this.filterFryTodos(fryBody,fryCategory)">
+            <mat-card-title id="categoryy" matTooltip="id: {{todo._id['$oid']}}">
+              <div id="divinside">{{todo.category}}</div>
+            </mat-card-title>
+            <mat-card-content class="cardContent">{{todo.body}} </mat-card-content>
+          </mat-card>
+        </div>
+
+        <ng-template #todosError>
+          <mat-error>
+            There was a problem loading the todos. Possibly the server is down or perhaps there are network
+            issues.
+          </mat-error>
+          <mat-error>
+            Please wait a bit and try again or start the server.
+          </mat-error>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

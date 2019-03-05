@@ -33,6 +33,20 @@ export class  TodoPage {
     input.sendKeys(owner);
   }
 
+  typeABody(body: string) {
+    const input = element(by.id('targetBody'));
+    input.click();
+    input.sendKeys(body);
+  }
+
+  typeACategory(category: string) {
+    const input = element(by.id('targetCategory'));
+    input.click();
+    input.sendKeys(category);
+  }
+
+
+
   selectUpKey() {
     browser.actions().sendKeys(Key.ARROW_UP).perform();
   }
@@ -41,28 +55,20 @@ export class  TodoPage {
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
   }
 
-  getCateogry(category: string) {
-    const input = element(by.id('targetCategory'));
-    input.click();
-    input.sendKeys(category);
-    this.click('submit');
-  }
 
-  /*getTodoByAge() {
-    const input = element(by.id('userName'));
-    input.click();
-    input.sendKeys(Key.TAB);
-  }*/
 
-  getUniqueTodo(body: string) {
-    const todo = element(by.id(body)).getText();
-    this.highlightElement(by.id(body));
+  getUniqueTodo(_id: string) {
+    const todo = element(by.id(_id)).element(by.id('divinside')).getText()
+
+    this.highlightElement(by.id(_id));
 
     return todo;
   }
 
+
+
   getTodos() {
-    return element.all(by.className('todos'));
+    return element.all(by.className('todo'));
   }
 
   elementExistsWithId(idOfElement: string): promise.Promise<boolean> {
