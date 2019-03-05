@@ -1,23 +1,43 @@
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {TestBed} from '@angular/core/testing';
-import {HttpClient} from '@angular/common/http';
+import {ComponentFixture, TestBed, async} from '@angular/core/testing';
+import {User} from './user';
+import {UserComponent} from './user.component';
+import {UserListService} from './user-list.service';
+import {Observable} from 'rxjs/Observable';
+import {CustomModule} from "../custom.module";
 
-import {Todo} from './todo';
-import {TodoListService} from './todo-list.service';
+describe('User component', () => {
 
-describe('Todo list service: ', () => {
+  let userComponent: UserComponent;
+  let fixture: ComponentFixture<UserComponent>;
 
-  const testTodos: Todo[] = [
-    {
-      
-    },
-    {
+  let userListServiceStub: {
+    getUserById: (userId: string) => Observable<User>
+  };
 
-    },
-    {
-
-    }
-  ];
-
-
-});
+  beforeEach(() => {
+    // stub UserService for test purposes
+    userListServiceStub = {
+      getUserById: (userId: string) => Observable.of([
+        {
+          _id: 'chris_id',
+          name: 'Chris',
+          age: 25,
+          company: 'UMM',
+          email: 'chris@this.that'
+        },
+        {
+          _id: 'pat_id',
+          name: 'Pat',
+          age: 37,
+          company: 'IBM',
+          email: 'pat@something.com'
+        },
+        {
+          _id: 'jamie_id',
+          name: 'Jamie',
+          age: 37,
+          company: 'Frogs, Inc.',
+          email: 'jamie@frogs.com'
+        }
+      ].find(user => user._id === userId))
+    };
