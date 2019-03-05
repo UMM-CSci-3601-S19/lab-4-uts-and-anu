@@ -1,1 +1,15 @@
+#homeID{
+  color: magenta;
+}
 
+#accountID{
+  color: deepskyblue;
+}
+
+#assignmentID{
+  color: green;
+}
+
+#lateID{
+  color: red;
+}
