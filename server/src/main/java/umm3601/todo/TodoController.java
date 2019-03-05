@@ -54,7 +54,7 @@ public class TodoController {
       filterDoc = filterDoc.append("status", targetStatus);
     }
 
-    //We don't need body and category, because we only plan on using server side filtering owner and status
+
     /*if (queryParams.containsKey("body")) {
       String targetBody = (queryParams.get("body")[0]);
       Document contentRegQuery = new Document();
@@ -62,14 +62,14 @@ public class TodoController {
       contentRegQuery.append("$options", "i");
       filterDoc = filterDoc.append("body", contentRegQuery);
     }
-
+*/
     if (queryParams.containsKey("category")) {
       String targetCategory = (queryParams.get("category")[0]);
       Document contentRegQuery = new Document();
       contentRegQuery.append("$regex", targetCategory);
       contentRegQuery.append("$options", "i");
       filterDoc = filterDoc.append("category", contentRegQuery);
-    }*/
+    }
 
 
 
@@ -93,12 +93,10 @@ public class TodoController {
     newTodo.append("body", body);
     newTodo.append("category", category);
 
-    System.err.println();
 
     try {
       todoCollection.insertOne(newTodo);
       ObjectId id = newTodo.getObjectId("_id");
-      System.err.println("bvcbvbas");
       System.err.println("Successfully added new todo [_id=" + id + ", owner=" + owner + ", status=" + status + " body=" + body + " category=" + category + ']');
       return id.toHexString();
     } catch (MongoException me) {
