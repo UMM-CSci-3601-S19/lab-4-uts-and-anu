@@ -15,8 +15,7 @@ export class TodoListService {
   constructor(private http: HttpClient) {
   }
 
-  getFryIncompleteTodos(todoCategory?: string): Observable<Todo[]> {
-    this.filterByCategory(todoCategory);
+  getFryIncompleteTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.fryUrl);
   }
 
