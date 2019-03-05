@@ -4,6 +4,48 @@
 }
 
 #list-title {
-  padding-right: 14px;
+  padding-right: 20px;
+}
+
+
+#cardDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.todo{
+  flex-basis: 22%;
+  border-radius: 10%;
+  padding: 5px;
+  margin-bottom: 0px;
+}
+.cardContent{
+  padding: 5px;
+}
+#ownerss {
+  background-color: #0086B3;
+  border-radius: 20%;
+  margin: 4%;
+  /*margin-right: 40px;*/
+  padding-bottom: 3px;
+  width: 50%;
+
+}
+#addNewTodo {
+  margin-left: 45%;
+  border-radius: 40px;
+
+}
+.true {
+  float: right;
+  display: inline;
+  color: #009926;
+}
+.false {
+  float: right;
+  display: inline;
+  color: #a61717;
 }
 

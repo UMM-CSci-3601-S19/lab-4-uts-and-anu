@@ -10,6 +10,7 @@ import {OwnerValidator} from "./owner.validator";
 })
 export class AddTodoComponent implements OnInit {
 
+
   addTodoForm: FormGroup;
 
   constructor(
