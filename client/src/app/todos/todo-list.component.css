@@ -46,8 +46,9 @@
   margin-bottom: 20px;
   background-color: #bbbbbb;
 }
-#addNewTodo hover {
-  background-color: red;
+#addNewTodo:hover {
+  background-color: #0086B3;
+  color: white;
 
 }
 .true {
