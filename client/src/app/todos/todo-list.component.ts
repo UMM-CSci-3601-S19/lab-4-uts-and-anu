@@ -4,7 +4,7 @@ import {Todo} from "./todo";
 import {Observable} from 'rxjs/Observable';
 import {MatDialog} from '@angular/material';
 import {AddTodoComponent} from './add-todo.component';
-// Don't forget to Create and add TodoUser Component
+
 
 @Component({
   selector: 'todo-list-component',
@@ -99,6 +99,9 @@ export class TodoListComponent implements OnInit {
 
     return this.filteredTodos;
   }
+
+
+
 
   refreshTodos(): Observable<Todo[]> {
 

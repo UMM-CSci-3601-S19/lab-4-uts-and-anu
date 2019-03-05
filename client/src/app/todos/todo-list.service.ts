@@ -10,8 +10,14 @@ import {environment} from '../../environments/environment';
 export class TodoListService {
   readonly baseUrl: string = environment.API_URL + 'todos';
   private todoUrl: string = this.baseUrl;
+  private fryUrl = this.todoUrl +'?owner=fry&status=incomplete';
 
   constructor(private http: HttpClient) {
+  }
+
+  getFryIncompleteTodos(todoCategory?: string): Observable<Todo[]> {
+    this.filterByCategory(todoCategory);
+    return this.http.get<Todo[]>(this.fryUrl);
   }
 
   getTodos(todoCategory?: string): Observable<Todo[]> {
