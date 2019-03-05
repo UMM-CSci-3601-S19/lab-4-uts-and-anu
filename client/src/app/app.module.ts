@@ -16,6 +16,8 @@ import {TodoComponent} from "./todos/todo.component";
 import {TodoListComponent} from "./todos/todo-list.component";
 import {TodoListService} from "./todos/todo-list.service";
 
+import {fryIncompleteComponent} from "./todos/fryIncomplete-todo.component";
+
 import {Routing} from './app.routes';
 import {APP_BASE_HREF} from '@angular/common';
 
@@ -42,6 +44,8 @@ import {AddTodoComponent} from './todos/add-todo.component';
     TodoListComponent,
     TodoComponent,
     AddTodoComponent,
+
+    fryIncompleteComponent,
   ],
   providers: [
     UserListService,
