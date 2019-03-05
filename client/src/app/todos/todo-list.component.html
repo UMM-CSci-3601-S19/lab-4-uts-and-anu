@@ -43,8 +43,8 @@
 
 
         <div id="cardDiv" *ngIf="todos; else todosError">
-          <mat-card #elem class="todo" [id]="todo.body" *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
-              <mat-card-title id="ownerss">
+          <mat-card #elem class="todo" [id]="todo._id[$oid]" *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
+              <mat-card-title id="ownerss" matTooltip="id: {{todo._id['$oid']}}">
                 <div [class]="todo.status">
                   <mat-icon>done_outline</mat-icon>
                 </div>

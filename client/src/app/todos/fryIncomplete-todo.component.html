@@ -19,7 +19,7 @@
 
         <div id="cardDiv" *ngIf="fryTodos; else todosError">
           <mat-card #elem class="todo" [id]="todo.body" *ngFor="let todo of this.filterFryTodos(fryBody,fryCategory)">
-            <mat-card-title id="categoryy">
+            <mat-card-title id="categoryy" matTooltip="id: {{todo._id['$oid']}}">
               <div id="divinside">{{todo.category}}</div>
             </mat-card-title>
             <mat-card-content class="cardContent">{{todo.body}} </mat-card-content>
