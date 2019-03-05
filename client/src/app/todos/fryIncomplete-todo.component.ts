@@ -25,7 +25,7 @@ export class fryIncompleteComponent implements OnInit {
   }
 
 
-  public filterFryTodos(searchBody: string): Todo[] {
+  public filterFryTodos(searchBody: string, searchCategory: string): Todo[] {
 
     this.fryFilteredTodos= this.fryTodos;
 
@@ -40,9 +40,18 @@ export class fryIncompleteComponent implements OnInit {
 
     }
 
+    //Filter by category
+    if(searchCategory != null){
+      searchCategory = searchCategory.toLocaleLowerCase();
+
+      this.fryFilteredTodos = this.fryFilteredTodos.filter(todo => {
+        return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
+      })
+
+    }
+
     return this.fryFilteredTodos;
   }
-
 
 
   refreshTodos(): Observable<Todo[]> {
@@ -51,7 +60,7 @@ export class fryIncompleteComponent implements OnInit {
     fryTodos.subscribe(
       fryTodos => {
         this.fryTodos = fryTodos;
-        this.filterFryTodos(this.fryBody);
+        this.filterFryTodos(this.fryBody, this.fryCategory);
       },
       err => {
         console.log(err);
@@ -59,21 +68,9 @@ export class fryIncompleteComponent implements OnInit {
     return fryTodos;
   }
 
-  loadServiceFry(): void {
-    this.todoListService.getFryIncompleteTodos(this.fryCategory).subscribe(
-      fryTodos => {
-        this.fryTodos = fryTodos;
-        this.fryFilteredTodos = this.fryTodos;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
 
   ngOnInit(): void {
     this.refreshTodos();
-    this.loadServiceFry();
   }
 
 }
