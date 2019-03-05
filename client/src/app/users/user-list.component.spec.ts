@@ -221,4 +221,5 @@ describe('Adding a user', () => {
     userList.openDialog();
     expect(calledUser).toEqual(newUser);
   });
+
 });
