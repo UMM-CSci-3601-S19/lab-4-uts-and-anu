@@ -6,11 +6,13 @@ import {MatDialog} from '@angular/material';
 import {AddTodoComponent} from './add-todo.component';
 
 
+
 @Component({
   selector: 'todo-list-component',
   styleUrls: ['./todo-list.component.css'],
   templateUrl: 'todo-list.component.html',
 })
+
 
 export class TodoListComponent implements OnInit {
   // These are public so that tests can reference them (.spec.ts)

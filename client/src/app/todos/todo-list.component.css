@@ -4,6 +4,69 @@
 }
 
 #list-title {
-  padding-right: 14px;
+  padding-right: 20px;
+}
+
+
+#cardDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.todo{
+  flex-basis: 22%;
+  border-radius: 10%;
+  padding: 5px;
+  margin-bottom: 0px;
+  background-color: #eaeaea;
+}
+.cardContent{
+  padding: 5px;
+}
+#ownerss {
+  border-radius: 20%;
+  /*margin-right: 40px;*/
+  width: 100%;
+  padding: 0;
+  color: lightgoldenrodyellow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 1;
+
+
+
+}
+#addNewTodo {
+  margin-left: 45%;
+  border-radius: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #bbbbbb;
+}
+#addNewTodo:hover {
+  background-color: #0086B3;
+  color: white;
+
+}
+.true {
+
+  float: right;
+  display: inline;
+  color: #009926;
+}
+.false {
+
+  float: right;
+  display: inline;
+  color: #a61717;
+}
+#divinside {
+  background-color: #0086B3;
+  padding: 10px;
+  border-radius: 20%;
+  margin-left: 40px;
 }
 
