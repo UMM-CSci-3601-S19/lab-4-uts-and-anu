@@ -42,18 +42,16 @@
         </form>
 
 
-        <mat-accordion *ngIf="todos; else todosError">
-          <mat-expansion-panel #elem class="todos" [id]="todo.body" [expanded]="this.isHighlighted(todo)"
-                               *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
-            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="status: {{todo.status}}">{{todo.body}}</mat-panel-title>
+        <div id="cardDiv" *ngIf="todos; else todosError">
+          <mat-card #elem class="todo" [id]="todo.body" *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
+              <mat-card-title id="ownerss">{{todo.owner}}</mat-card-title>
 
-            </mat-expansion-panel-header>
-            <mat-panel-description>Owner: {{todo.owner}} </mat-panel-description>
-            <mat-panel-description>Category:{{todo.category}} </mat-panel-description>
-            <mat-panel-description>Complete?:{{todo.status}} </mat-panel-description>
-          </mat-expansion-panel>
-        </mat-accordion>
+
+            <mat-card-content class="cardContent">Body: {{todo.body}} </mat-card-content>
+            <mat-card-content class="cardContent">Category:{{todo.category}} </mat-card-content>
+            <mat-card-content class="cardContent">Complete?:{{todo.status}} </mat-card-content>
+            </mat-card>
+        </div>
 
         <ng-template #todosError>
           <mat-error>

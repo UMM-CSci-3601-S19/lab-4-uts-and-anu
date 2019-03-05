@@ -10,7 +10,6 @@ import {
 } from '@angular/material';
 
 import {FlexLayoutModule,} from '@angular/flex-layout';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 

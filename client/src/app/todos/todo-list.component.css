@@ -4,5 +4,26 @@
 }
 
 #list-title {
-  padding-right: 14px;
+  padding-right: 20px;
+}
+
+
+#cardDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.todo{
+  flex-basis: 22%;
+  border-radius: 10%;
+}
+.cardContent{
+  padding: 5px;
+  border-bottom: 0px;
+}
+#ownerss {
+  background-color: #4183c4;
+  border-radius: 20%;
 }
