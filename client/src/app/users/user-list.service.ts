@@ -24,15 +24,6 @@ export class UserListService {
     return this.http.get<User>(this.userUrl + '/' + id);
   }
 
-  /*
-  //This method looks lovely and is more compact, but it does not clear previous searches appropriately.
-  //It might be worth updating it, but it is currently commented out since it is not used (to make that clear)
-  getUsersByCompany(userCompany?: string): Observable<User> {
-      this.userUrl = this.userUrl + (!(userCompany == null || userCompany == "") ? "?company=" + userCompany : "");
-      console.log("The url is: " + this.userUrl);
-      return this.http.request(this.userUrl).map(res => res.json());
-  }
-  */
 
   filterByCompany(userCompany?: string): void {
     if (!(userCompany == null || userCompany === '')) {
