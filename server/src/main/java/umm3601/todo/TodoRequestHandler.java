@@ -46,15 +46,17 @@ public class TodoRequestHandler {
   public String addNewTodo(Request req, Response res) {
     res.type("application/json");
 
+
     Document newTodo = Document.parse(req.body());
 
     String owner = newTodo.getString("owner");
-    Boolean status = newTodo.getBoolean("status");
+    String status = newTodo.getString("status");
+    Boolean statusB = Boolean.parseBoolean(status);
     String body = newTodo.getString("body");
     String category = newTodo.getString("category");
 
     System.err.println("Adding new todo [owner=" + owner + ", status=" + status + " body=" + body + " category=" + category + ']');
-    return todoController.addNewTodo(owner, status, body, category);
+    return todoController.addNewTodo(owner, statusB, body, category);
   }
 
 }

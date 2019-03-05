@@ -93,9 +93,12 @@ public class TodoController {
     newTodo.append("body", body);
     newTodo.append("category", category);
 
+    System.err.println();
+
     try {
       todoCollection.insertOne(newTodo);
       ObjectId id = newTodo.getObjectId("_id");
+      System.err.println("bvcbvbas");
       System.err.println("Successfully added new todo [_id=" + id + ", owner=" + owner + ", status=" + status + " body=" + body + " category=" + category + ']');
       return id.toHexString();
     } catch (MongoException me) {
