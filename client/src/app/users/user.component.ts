@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   private id: string;
 
   constructor(private userListService: UserListService) {
-    // this.users = this.userListService.getUsers();
+    // this.users = this.userListService.getUsers(); //ASK WHAT THIS MEANS
   }
 
   private subscribeToServiceForId() {

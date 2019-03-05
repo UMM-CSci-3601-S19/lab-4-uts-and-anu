@@ -83,6 +83,7 @@ public class UserRequestHandler {
     String email = newUser.getString("email");
 
     System.err.println("Adding new user [name=" + name + ", age=" + age + " company=" + company + " email=" + email + ']');
+
     return userController.addNewUser(name, age, company, email);
   }
 }
