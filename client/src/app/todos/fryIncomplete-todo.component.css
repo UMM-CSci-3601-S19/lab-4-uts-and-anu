@@ -1,0 +1,49 @@
+#title input {
+  width: 16%;
+  min-width: 100px;
+}
+
+#list-title {
+  padding-right: 20px;
+}
+
+
+#cardDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.todo{
+  flex-basis: 22%;
+  border-radius: 10%;
+  padding: 5px;
+  margin-bottom: 0px;
+  background-color: #eaeaea;
+}
+.cardContent{
+  padding: 5px;
+}
+
+#categoryy {
+  float:left;
+  border-radius: 20%;
+  /*margin-right: 40px;*/
+  width: 100%;
+  padding: 0;
+  color: lightgoldenrodyellow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+
+
+#divinside {
+  float: left;
+  background-color: #0086B3;
+  padding: 10px;
+  border-radius: 20%;
+}
