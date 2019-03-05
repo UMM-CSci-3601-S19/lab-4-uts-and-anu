@@ -44,7 +44,12 @@
 
         <div id="cardDiv" *ngIf="todos; else todosError">
           <mat-card #elem class="todo" [id]="todo.body" *ngFor="let todo of this.filterTodos(targetOwner, targetStatus, targetBody)">
-              <mat-card-title id="ownerss">{{todo.owner}}</mat-card-title>
+              <mat-card-title id="ownerss">{{todo.owner}}
+                <div [class]="todo.status">
+                  <mat-icon>done_outline</mat-icon>
+                </div>
+              </mat-card-title>
+
 
 
             <mat-card-content class="cardContent">Body: {{todo.body}} </mat-card-content>
